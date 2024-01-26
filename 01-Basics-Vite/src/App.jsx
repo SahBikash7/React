@@ -4,7 +4,7 @@ function App() {
   return (
     // We cannot return multiple elements :
     <>
-      <Intro />x
+      <Intro />
       <h1>Hello World | {username}</h1>
     </>
 
