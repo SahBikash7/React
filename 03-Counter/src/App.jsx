@@ -14,7 +14,22 @@ function App() {
   const increaseValue = () => {
     // counter += 1;
     // setCounter(counter);
+
     setCounter(counter + 1);
+    setCounter(counter + 1);
+    setCounter(counter + 1);
+
+    // The value which comes through callBack actually comes by calling the value after the completion of the batch process.
+
+    setCounter((prevCounter) => prevCounter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
+
+    // Even if we write multiple setCounter(counter + 1), the value of counter only increases by 1 on 1 click because useState sends each and every updates in UI and variables in batches.So this setCounter(counter +1) is updating the same counter having value 15 each time.These multiple setCounter is handled as a batch.
+
+    // If we want to update the counter by using multiple setCounter which not an optimized approach but regardless then we can use
+
+    // Every states like setCounter() for example accepts a callBack within it.
+    // setCounter((prevCounter) => prevCounter + 1);
   };
   const decreaseValue = () => {
     if (counter > 0) {
