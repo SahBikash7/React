@@ -1,6 +1,9 @@
 import React from "react";
+
 import ReactDOM from "react-dom/client";
 import "./index.css";
+
+// react-router-dom is not the core part of react. It is the third-party library.
 
 import {
   Route,
@@ -17,6 +20,7 @@ import {
   Github,
   gitHubInfoLoader,
 } from "./components";
+
 import Layout from "./Layout.jsx";
 
 // There are two ways(basically syntax is different) for creating route:
@@ -37,6 +41,10 @@ import Layout from "./Layout.jsx";
 // 2. Second Way :
 const router = createBrowserRouter(
   createRoutesFromElements(
+    // The layout consists of <Header/> <Outlet/> and <Footer/> from which the header and footer are already imported and used in layout.jsx the outlet is the one which we pass the element inside our route.
+
+    // At the top level we have layout and then we nested for our outlets depending upon our routes.
+
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
@@ -44,6 +52,8 @@ const router = createBrowserRouter(
       <Route path="user/:userId" element={<User />} />
       <Route
         // Loader does ur api-calls when u hover over that component whereas useEffect() does ur things when u click over the component
+
+        // we can write the api calls within loader as below using callback within it :
 
         // loader={() => {
         //   // u can do api-calls or call-Database here too but not a great thing to do...

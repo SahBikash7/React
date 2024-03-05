@@ -4,13 +4,22 @@ import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
   const [amount, setAmount] = useState(0);
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("npr");
+
+  // Convert from :
+  const [from, setFrom] = useState("USD");
+
+  // Convert to :
+  const [to, setTo] = useState("NPR");
+
   const [convertedAmount, setConvertedAmount] = useState(0);
 
+  // so the data returned from our useCurrencyInfo hook is stored in currrencyInfo.
   const currencyInfo = useCurrencyInfo(from);
+  // currencyInfo has the currency name and conversion-rate based on oyr "from" currency in key value pair but we don't pass the rate to the user right hence we get the keys only from the object which are the currencies name
+
   const options = Object.keys(currencyInfo);
 
+  // The swap functionality working :
   const swap = () => {
     setFrom(to);
     setTo(from);
@@ -72,7 +81,7 @@ function App() {
               className="w-full bg-blue-600 text-black px-4 py-3 rounded-lg"
               onClick={convert}
             >
-              Convert {from.toUpperCase()} to {to.toUpperCase()}
+              Convert {from} to {to}
             </button>
           </form>
         </div>

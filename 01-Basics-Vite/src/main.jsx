@@ -14,6 +14,7 @@ import App from "./App.jsx";
 //   },
 //   children: "Click To Open Google",
 // };
+// ReactDOM.createRoot(document.getElementById("root")).render(reactElement);
 
 // The reactElement doesn't work because tyo element lai render garna hamileh aafnai customRender banako them 02-Custom-React ma but here we are using the render of the react aaba yo render leh aafnai syntax haru expect garxa ,simply speaking hmro reactElement ko syntax react ko render method leh bujhena..
 
@@ -27,14 +28,16 @@ import App from "./App.jsx";
 //   "Click To Visit Google!!!",
 //   username
 // );
+// ReactDOM.createRoot(document.getElementById("root")).render(reactElement);
 
 //The reactElement works now because to render the reactElement  we are using the render of the react and now reactElement's syntax is as expected by the render of react.
 
+// Also This Work :
 // const anotherElement = (
 //   <a href="https://facebook.com" target="_nothing">
 //     Click To Visit Facebook
 //   </a>
 // );
-// Also This Work
+// ReactDOM.createRoot(document.getElementById("root")).render(anotherElement);
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

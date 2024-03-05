@@ -1,4 +1,5 @@
-import React from "react";
+import PropTypes from "prop-types";
+
 function Button({ buttonText = "Default", clickedThenDo }) {
   return (
     <button
@@ -10,4 +11,10 @@ function Button({ buttonText = "Default", clickedThenDo }) {
     </button>
   );
 }
+
+Button.propTypes = {
+  buttonText: PropTypes.string,
+  clickedThenDo: PropTypes.function,
+};
+
 export default Button;

@@ -14,6 +14,7 @@ function App() {
         Tailwind Test
       </h1>
       {/* <Card username="Bikash" someObject={myObj} someArr={myArr} /> */}
+      {/* We cannot directly pass an array or object like we passed username into props of Card component  */}
       <Card username="Bikash" />
       <Card username="Aayush" />
       <Card />

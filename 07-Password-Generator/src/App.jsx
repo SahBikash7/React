@@ -10,15 +10,15 @@ function App() {
   // using useRef hook :
   const passwordRef = useRef(null);
 
-  // useCallback() optimizes the function which is called repeatedly by caching the values on which the function depends
+  // useCallback() optimizes the execution of the function which is called repeatedly by caching the values on which the function depends
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numAllowed) str += "0123456789";
     if (charAllowed) str += "~!@#$%^&*()_+=-{}[].,<>?/:;";
     for (let i = 1; i <= length; i++) {
-      let randomchar = Math.floor(Math.random() * str.length + 1);
-      pass += str.charAt(randomchar);
+      let randomIndex = Math.floor(Math.random() * str.length);
+      pass += str.charAt(randomIndex);
     }
     setPassword(pass);
   }, [length, numAllowed, charAllowed, setPassword]);
@@ -30,12 +30,15 @@ function App() {
     // To select the value of the inputField of password within a range
     // passwordRef.current?.setSelectionRange(0, 5);
 
+    // Copies the password to clipboard :
     window.navigator.clipboard.writeText(password);
   }, [password]);
-  // useEffect() actually runs the function with change in the dependencies of the function
+
+  // useEffect() actually runs the function with change in the dependencies provided and also optimizes by caching the dependencies.
   useEffect(() => {
     passwordGenerator();
   }, [length, numAllowed, charAllowed, passwordGenerator]);
+
   return (
     <>
       <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-500 bg-gray-800 ">
@@ -53,7 +56,7 @@ function App() {
             ref={passwordRef}
           />
           <button
-            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0"
+            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 hover:bg-blue-900"
             onClick={copyPasswordToClipboard}
           >
             Copy

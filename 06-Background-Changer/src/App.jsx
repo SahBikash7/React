@@ -3,7 +3,10 @@ import "./App.css";
 import Button from "./components/Button";
 
 function App() {
+  /* It is not compulsory to use useState in App.jsx , u can directly use it in your Button.jsx i.e in your component but i wanted to try out how can we send the function , turns out we need to pass the function which changes the background color as a prop into our component and then we need to use that function which is inside the prop of our component  on the onclick event of the component which in our case is a button */
+
   const [color, setColor] = useState("#212121");
+
   return (
     <div className="w-full h-screen" style={{ backgroundColor: color }}>
       <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">

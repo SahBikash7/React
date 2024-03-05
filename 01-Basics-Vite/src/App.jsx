@@ -15,7 +15,7 @@ function App() {
     // So inside the curly braces we don't write JavaScript we only write the final output of the JavaScript...
 
     // Why we only write evaluated expression inside the curly braces??
-    // => The things we return are at the end of the day converted into the object ( see main.jsx line 20-29 ) now we don't write the if-else or any JavaScript directly inside the object, yah u can write javaScript inside a function declared into the object but React here directly inserts the variable as it is inside the object so no JS is written inside the curly braces and hence it is called Evaluated-Expression.
+    // => The things we return are at the end of the day converted into the object ( see main.jsx line 21-30 ) now we don't write the if-else or any JavaScript directly inside the object, yah u can write javaScript inside a function declared into the object but React here directly inserts the variable as it is inside the object so no JS is written inside the curly braces and hence it is called Evaluated-Expression.
   );
 }
 export default App;

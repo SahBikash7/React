@@ -1,11 +1,24 @@
-import React from "react";
+import PropTypes from "prop-types";
+
+//propTypes typically refers to the property of a React component where you define the expected types for props.
+// PropTypes refers to the PropTypes library provided by React for defining the types of props.
 
 //props makes the same component more usable.
-function Card({ username = "Default" }) {
-  //   console.log("props", props); //props is an object which has prototypes in double-square bracket which means those prototypes are not accessible...
 
-  //   console.log(props.username);
+// Every components have access of props.
 
+// The values which we pass while rendering the component as html are passed into this props which is an object as the key value pair.
+
+/*
+
+  function Card(props){
+     console.log("props", props); //props is an object which has prototypes in double-square bracket which means those prototypes are not accessible...
+    console.log(props.username);
+  }
+
+*/
+
+function Card({ username = "defaultUsernameIsHello" }) {
   console.log(username);
   return (
     <div className="relative h-[400px] w-[300px] rounded-md">
@@ -28,5 +41,7 @@ function Card({ username = "Default" }) {
     </div>
   );
 }
+
+Card.propTypes = { username: PropTypes.string };
 
 export default Card;

@@ -35,6 +35,7 @@ function Header() {
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
+                {/* Link and NavLink are typically same but we have few more features available in NavLink for-Eg : isActive is accessible in NavLInk but not in Link  */}
                 <NavLink
                   to="/"
                   className={({ isActive }) =>

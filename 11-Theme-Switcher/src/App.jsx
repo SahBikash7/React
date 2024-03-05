@@ -7,18 +7,25 @@ import ThemeBtn from "./components/ThemeButton";
 function App() {
   const [themeMode, setThemeMode] = useState("light");
 
+  // We have made lightTheme method in out ThemeContext but it doesn't do anything.
+
+  // We can define lightTheme(method having same name) here which causes the functionality of the lightTheme method of ThemeContext which previously didn't do anything to be defined as we define it here :
+
   const lightTheme = () => {
     setThemeMode("light");
   };
+
+  // And same follows for the darkTheme as well :
+
   const darkTheme = () => {
     setThemeMode("dark");
   };
 
   // Actual Change in Theme:
   useEffect(() => {
-    const themeChanger = document.querySelector("html").classList;
-    themeChanger.remove("light", "dark");
-    themeChanger.add(themeMode);
+    const theme = document.querySelector("html").classList;
+    theme.remove("light", "dark");
+    theme.add(themeMode);
   }, [themeMode]);
 
   return (
