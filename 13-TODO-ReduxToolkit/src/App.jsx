@@ -1,9 +1,24 @@
+import { useEffect } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
-import { useSelector } from "react-redux";
+import { loadTodo } from "./features/todo/todoSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const todosFromLS = JSON.parse(localStorage.getItem("todos"));
+    if (todosFromLS && todosFromLS.length > 0) {
+      dispatch(loadTodo(todosFromLS));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <>
       <div className="bg-[#172842] min-h-screen py-8">
